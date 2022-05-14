@@ -363,8 +363,8 @@ textarea {
     .underline {
         width: 68px;
     }
-
-    #form_button {
+    
+    .form_button {
         padding: 15px 25px;
     }
 }
@@ -389,5 +389,9 @@ textarea {
     select,
     textarea {
         font-size: 0.875em;
+    }
+
+    .form_button {
+        padding: 10px 20px;
     }
 }
