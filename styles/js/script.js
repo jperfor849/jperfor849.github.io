@@ -7,6 +7,7 @@ function handleSubmit(event) {
 
     const names = document.getElementById('name').value;
     const surnames = document.getElementById('surname').value;
+    const nameformat = /^[a-zA-ZÀ-ÿ\s]$/;
     const ntelephone = document.getElementById('telephone').value;
     const ntelephoneformat = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{3})$/;
     const password = document.getElementById('passwd').value;
@@ -30,6 +31,8 @@ function handleSubmit(event) {
     } else if (surnames === '') {
         alert("Surname is empty!");
         return;
+    } else if (!surnames.match(nameformat)) {
+        alert("Surname doesn't have the right format.")
     }
 
     if (names.length < 3 || names.length > 15) {
@@ -38,6 +41,8 @@ function handleSubmit(event) {
     } else if (names === '') {
         alert("Name is empty!");
         return;
+    } else if (!names.match(nameformat)) {
+        alert("Name doesn't have the right format.")
     }
 
     if (ntelephone==='') {
