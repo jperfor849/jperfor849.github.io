@@ -1,21 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 * {
-    font-family: 'Montserrat', Arial, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
+    align-items: center;
     background-image: url(/styles/img/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
     display: flex;
-    align-items: center;
+    height: 100vh;
     justify-content: center;
 }
 
@@ -46,14 +46,14 @@ textarea {
 }
 
 #container {
+    background-color: #FFF;
     border: solid 3px #474544;
     border-radius: 2%;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+    flex: 1 0 auto;
     max-width: 768px;
     margin: 0 auto;
     position: relative;
-    background-color: #FFF;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
-    flex: 1 0 auto;
 }
 
 .surname {
@@ -94,18 +94,32 @@ textarea {
 
 .birthDate {
     grid-area: birthDate;
+    display: flex;
+}
+
+#birthDate {
+    text-align: end;
 }
 
 .submit {
     grid-area: submit;
 }
 
-/* #mail {
-    opacity: 0;
-} */
+.surname,
+.name,
+.telephone,
+.email,
+.passwd,
+.confpasswd,
+.genre,
+.birthPlace,
+.countryOfResidence,
+.birthDate,
+.submit {
+    width: 100%;
+}
 
 form {
-    padding: 37.5px;
     display: grid;
     grid-template-areas:
     "surname .. name"
@@ -117,6 +131,7 @@ form {
     "submit submit submit";
     grid-template-columns: 45% 10% 45%;
     grid-template-rows: repeat(7, 14.28%);
+    padding: 37.5px;
 }
 
 h1 {
@@ -124,10 +139,10 @@ h1 {
     font-size: 32px;
     font-weight: 700;
     letter-spacing: 7px;
+    margin: 0 auto;
+    padding: 2rem;
     text-align: center;
     text-transform: uppercase;
-    padding: 2rem;
-    margin: 0 auto;
 }
 
 #fragment1 {
@@ -144,21 +159,21 @@ h1 {
 }
 
 #fragment1, #fragment2 {
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(25, end);
+    display: inline-block;
     overflow: hidden;
     position: relative;
-    display: inline-block;
     white-space: nowrap;
-    animation-duration: 15s;
-    animation-timing-function: steps(25, end);
-    animation-iteration-count: infinite;
 }
 
 #fragment1::after, #fragment2::after {
-    position: absolute;
-    right: 0;
     animation: caret infinite;
     animation-duration: 3s;
     animation-timing-function: steps(1, end);
+    position: absolute;
+    right: 0;
 }
   
 @keyframes fragment2 {
@@ -195,11 +210,6 @@ h1 {
     width: 80px;
 }
 
-.name {
-    float: right;
-    width: 100%;
-}
-
 input[type='text'],
 [type='email'],
 [type='password'],
@@ -218,8 +228,8 @@ textarea,
     margin: 0em 0 1.875em 0;
     padding: 0 0 0.875em 0;
     text-transform: uppercase;
-    width: 100%;
     transition: all 0.3s;
+    width: 100%;
 }
 
 input[type='text']:focus,
@@ -229,9 +239,9 @@ input[type='text']:focus,
 [type='date']:focus,
 select:focus,
 textarea:focus {
+    border-color: #00ade6;
     outline: none;
     padding: 0 0 0.875em 0;
-    border-color: #00ade6;
 }
 
 input[type='password']:focus:invalid,
@@ -240,23 +250,11 @@ input[type='password']:focus:invalid,
     border-color: #e63900;
 }
 
-.birthDate {
-    display: flex;
-}
-
-#birthDate {
-    text-align: end;
-}
-
-.surname {
-    width: 100%;
-}
-
 select {
-    background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
-    outline: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+    outline: none;
     text-indent: 1px;
     text-overflow: '';
 }
@@ -265,33 +263,9 @@ select::-ms-expand {
     display: none;
 }
 
-.genre {
-    width: 100%;
-}
-
-.birthPlace {
-    width: 100%;
-}
-
-.countryOfResidence {
-    width: 100%;
-}
-
-.telephone {
-    width: 100%;
-}
-
-.passwd {
-    width: 100%;
-}
-
-.confpasswd {
-    width: 100%;
-}
-
 textarea {
-    line-height: 150%;
     height: 150px;
+    line-height: 150%;
     resize: none;
     width: 100%;
 }
