@@ -1,0 +1,393 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+* {
+    font-family: 'Montserrat', Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/styles/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+input,
+select,
+textarea {
+    color: #5A5A5A;
+    font: inherit;
+    margin: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+textarea {
+    overflow: auto;
+}
+
+#container {
+    border: solid 3px #474544;
+    border-radius: 2%;
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+    background-color: #FFF;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.5);
+    flex: 1 0 auto;
+}
+
+.surname {
+    grid-area: surname;
+}
+
+.name {
+    grid-area: name;
+}
+
+.telephone {
+    grid-area: telephone;
+}
+
+.email {
+    grid-area: email;
+}
+
+.passwd {
+    grid-area: passwd;
+}
+
+.confpasswd {
+    grid-area: confpasswd;
+}
+
+.genre {
+    grid-area: genre;
+}
+
+.birthPlace {
+    grid-area: birthPlace;
+}
+
+.countryOfResidence {
+    grid-area: countryOfResidence;
+}
+
+.birthDate {
+    grid-area: birthDate;
+}
+
+.submit {
+    grid-area: submit;
+}
+
+/* #mail {
+    opacity: 0;
+} */
+
+form {
+    padding: 37.5px;
+    display: grid;
+    grid-template-areas:
+    "surname .. name"
+    "telephone .. email"
+    "passwd .. confpasswd"
+    "genre genre genre"
+    "birthPlace .. countryOfResidence"
+    "birthDate birthDate birthDate"
+    "submit submit submit";
+    grid-template-columns: 45% 10% 45%;
+    grid-template-rows: repeat(7, 14.28%);
+}
+
+h1 {
+    color: #474544;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+#fragment1 {
+    animation: fragment1;
+}
+
+#fragment2 {
+    animation: fragment2;
+}
+
+#fragment2 > a {
+    text-decoration: none;
+    color: green;
+}
+
+#fragment1, #fragment2 {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    animation-duration: 15s;
+    animation-timing-function: steps(25, end);
+    animation-iteration-count: infinite;
+}
+
+#fragment1::after, #fragment2::after {
+    position: absolute;
+    right: 0;
+    animation: caret infinite;
+    animation-duration: 3s;
+    animation-timing-function: steps(1, end);
+}
+  
+@keyframes fragment2 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    
+    60%, 90% {
+      width: 21.2em;
+    }
+}
+  
+@keyframes fragment1 {
+    0%, 50%, 100% {
+      width: 0;
+    }
+    10%, 40% {
+      width: 17em;
+    }
+}
+  
+@keyframes caret {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+}
+
+.underline {
+    border-bottom: solid 2px #474544;
+    margin: -0.512em auto;
+    width: 80px;
+}
+
+.name {
+    float: right;
+    width: 100%;
+}
+
+input[type='text'],
+[type='email'],
+[type='password'],
+[type='tel'],
+[type='date'],
+select,
+textarea, 
+.birthDate > label {
+    background: none;
+    border: none;
+    border-bottom: solid 2px #474544;
+    color: #474544;
+    font-size: 1.000em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0em 0 1.875em 0;
+    padding: 0 0 0.875em 0;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+input[type='text']:focus,
+[type='email']:focus,
+[type='password']:focus,
+[type='tel']:focus,
+[type='date']:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    padding: 0 0 0.875em 0;
+    border-color: #00ade6;
+}
+
+input[type='password']:focus:invalid,
+[type='email']:focus:invalid,
+[type='tel']:focus:invalid {
+    border-color: #e63900;
+}
+
+.birthDate {
+    display: flex;
+}
+
+#birthDate {
+    text-align: end;
+}
+
+.surname {
+    width: 100%;
+}
+
+select {
+    background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.genre {
+    width: 100%;
+}
+
+.birthPlace {
+    width: 100%;
+}
+
+.countryOfResidence {
+    width: 100%;
+}
+
+.telephone {
+    width: 100%;
+}
+
+.passwd {
+    width: 100%;
+}
+
+.confpasswd {
+    width: 100%;
+}
+
+textarea {
+    line-height: 150%;
+    height: 150px;
+    resize: none;
+    width: 100%;
+}
+
+::-webkit-input-placeholder {
+    color: #474544;
+}
+
+:-moz-placeholder {
+    color: #474544;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #474544;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #474544;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form_button {
+    background: none;
+    border: solid 2px #474544;
+    color: #474544;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.875em;
+    font-weight: bold;
+    outline: none;
+    padding: 20px 35px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+.form_button:hover {
+    background: #474544;
+    color: #F2F3EB;
+}
+
+.form_button:active {
+    background: #00ade6;
+    color: #474544;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 4vh;
+    }
+
+    #container {
+        margin: 20px auto;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 26px;
+    }
+
+    .underline {
+        width: 68px;
+    }
+
+    #form_button {
+        padding: 15px 25px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .icon {
+        height: 35px;
+        width: 35px;
+    }
+
+    .underline {
+        width: 53px;
+    }
+
+    input[type='text'],
+    [type='email'],
+    [type='password'],
+    select,
+    textarea {
+        font-size: 0.875em;
+    }
+}
