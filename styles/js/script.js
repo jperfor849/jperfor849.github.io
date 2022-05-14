@@ -25,8 +25,8 @@ function handleSubmit(event) {
 	/* Constants for storing the regex rules and also for storing the new Date and the ages and months that have passed since the birth date and the current date. */
 	/* name and surname: can only contain letters */
 	const nameformat = /^[a-zA-ZÀ-ÿ\s]$/;
-	/* telephone: can only contain 9 numbers and can also contain a - per 3 numbers */
-	const ntelephoneformat = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{3})$/;
+	/* telephone: can only contain numbers */
+	const ntelephoneformat = /^\d$/;
 	/* password: must contain 1 capital letter, 1 lower case letter, 1 number and 1 special character and a length btw 8 and 15 characters */
 	const passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,15}$/;
 	/* email: can only contain letters, numbers, dots, hyphens and underscores and must contain an @ and .<whatever> */
@@ -63,7 +63,10 @@ function handleSubmit(event) {
 	}
 
 	/* telephone: mustn't be empty and must match the telephone format */
-	if (ntelephone === '') {
+    if (ntelephone.length < 9 || ntelephone.length > 9) {
+        alert("Phone number must have 9 characters.");
+        return;
+    } else if (ntelephone === '') {
 		alert("Please enter a Phone number");
 		return;
 	} else if (!ntelephone.match(ntelephoneformat)) {
