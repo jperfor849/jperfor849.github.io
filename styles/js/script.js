@@ -27,8 +27,8 @@ function handleSubmit(event) {
 	const nameformat = /^[a-zA-ZÀ-ÿ\s]$/;
 	/* telephone: can only contain numbers */
 	const ntelephoneformat = /^\d$/;
-	/* password: must contain 1 capital letter, 1 lower case letter, 1 number and 1 special character and a length btw 8 and 15 characters */
-	const passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,15}$/;
+	/* password: must contain 1 capital letter, 1 lower case letter, 1 number and 1 special character */
+	const passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).+$/;
 	/* email: can only contain letters, numbers, dots, hyphens and underscores and must contain an @ and .<whatever> */
 	const emailformat = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 	/* select camps: cannot be empty, so it has to have 1 value at least. */
