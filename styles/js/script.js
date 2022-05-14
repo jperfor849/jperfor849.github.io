@@ -24,9 +24,9 @@ function handleSubmit(event) {
 
 	/* Constants for storing the regex rules and also for storing the new Date and the ages and months that have passed since the birth date and the current date. */
 	/* name and surname: can only contain letters */
-	const nameformat = /^[a-zA-ZÀ-ÿ\s]$/;
+	const nameformat = /^[a-zA-ZÀ-ÿ\s]+$/;
 	/* telephone: can only contain numbers */
-	const ntelephoneformat = /^\d$/;
+	const ntelephoneformat = /^\d+$/;
 	/* password: must contain 1 capital letter, 1 lower case letter, 1 number and 1 special character */
 	const passwordformat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).+$/;
 	/* email: can only contain letters, numbers, dots, hyphens and underscores and must contain an @ and .<whatever> */
