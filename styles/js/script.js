@@ -53,7 +53,7 @@ function handleSubmit(event) {
 
 	/* name: must have a length between 3 and 15 characters at least, mustn't be empty and must match with the nameformat */
 	if (names.length < 3 || names.length > 15) {
-		alert("Name is invalid!");
+		alert("Name must have between 3 and 15 characters!");
 		return;
 	} else if (names === '') {
 		alert("Name is empty!");
