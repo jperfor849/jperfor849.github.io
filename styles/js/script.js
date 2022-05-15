@@ -41,39 +41,39 @@ function handleSubmit(event) {
 	/* month: store the months that have passed since your date of birth until now */
 	const month = currentdate.getMonth() - year.getMonth();
 
-	/* surname: must have a length of 2 characters at least, mustn't be empty and must match with the nameformat */
+	/* surname: must have a length of 2 letters at least, mustn't be empty and must match with the nameformat */
 	if (surnames === '') {
 		error.textContent = "Surname is empty!";
 		return;
 	} else if (surnames.length < 2) {
-		error.textContent = "Surname is too short!";
+		error.textContent = "Surname is must have at least 2 letters!";
 		return;
 	} else if (!surnames.match(nameformat)) {
-		error.textContent = "Surname doesn't have the right format.";
+		error.textContent = "Surname must only contain letters!";
 		return;
 	}
 
-	/* name: must have a length between 3 and 15 characters at least, mustn't be empty and must match with the nameformat */
+	/* name: must have a length between 3 and 15 letters at least, mustn't be empty and must match with the nameformat */
 	if (names === '') {
 		error.textContent = "Name is empty!";
 		return;
 	} else if (names.length < 3 || names.length > 15) {
-		error.textContent = "Name must have between 3 and 15 characters!";
+		error.textContent = "Name must have between 3 and 15 letters!";
 		return;
 	} else if (!names.match(nameformat)) {
-		error.textContent = "Name doesn't have the right format.";
+		error.textContent = "Name must only contain letters!";
 		return;
 	}
 
 	/* telephone: mustn't be empty and must match the telephone format */
 	if (ntelephone === '') {
-		error.textContent = "Please enter a Phone number";
+		error.textContent = "Please enter a Phone number!";
 		return;
 	} else if (ntelephone.length < 9 || ntelephone.length > 9) {
-		error.textContent = "Phone number must have 9 characters.";
+		error.textContent = "Phone number must have 9 digits!";
         return;
 	} else if (!ntelephone.match(ntelephoneformat)) {
-		error.textContent = "Phone number doesn't have the right format.";
+		error.textContent = "Phone number must only contain numbers!";
 		return;
 	}
 
@@ -103,25 +103,25 @@ function handleSubmit(event) {
 
 	/* genre: mustn't be empty */
 	if (!genre.match(select)) {
-		error.textContent = "Genre is needed";
+		error.textContent = "Genre is needed!";
 		return;
 	}
 
 	/* birthPlace: mustn't be empty */
 	if (!birthplace.match(select)) {
-		error.textContent = "Birth place is needed";
+		error.textContent = "Birth place is needed!";
 		return;
 	}
 
 	/* countryOfResidence: mustn't be empty */
 	if (!countryofresidence.match(select)) {
-		error.textContent = "Country of residence is needed";
+		error.textContent = "Country of residence is needed!";
 		return;
 	}
 
 	/* birthDate mustn't be greater than current date */
 	if (birthdate > currentdate.toISOString().slice(0, 10)) {
-		error.textContent = "Birth date is greater than the current date.";
+		error.textContent = "Birth date is greater than the current date!";
 		return;
 	}
 
@@ -133,7 +133,7 @@ function handleSubmit(event) {
 
 	/* you can't: be underage or be over 65 years old */
 	if (age < 18 || age > 65) {
-		error.textContent = "You can't be underage and you can't be over 65 years old";
+		error.textContent = "You can't be underage and you can't be over 65 years old!";
 		return;
 	}
 
