@@ -21,6 +21,7 @@ function handleSubmit(event) {
 	const countryofresidence = document.getElementById('countryOfResidence').value;
 	const birthdate = document.getElementById('birthDate').value;
 	const year = new Date(birthdate);
+	const error = document.getElementById("errorName");
 
 	/* Constants for storing the regex rules and also for storing the new Date and the ages and months that have passed since the birth date and the current date. */
 	/* name and surname: can only contain letters */
@@ -41,84 +42,86 @@ function handleSubmit(event) {
 	const month = currentdate.getMonth() - year.getMonth();
 
 	/* surname: must have a length of 2 characters at least, mustn't be empty and must match with the nameformat */
-	if (surnames.length < 2) {
-		alert("Surname is too short!");
+	if (surnames === '') {
+		error.textContent = "Surname is empty!";
 		return;
-	} else if (surnames === '') {
-		alert("Surname is empty!");
+	} else if (surnames.length < 2) {
+		error.textContent = "Surname is too short!";
 		return;
 	} else if (!surnames.match(nameformat)) {
-		alert("Surname doesn't have the right format.");
+		error.textContent = "Surname doesn't have the right format.";
+		return;
 	}
 
 	/* name: must have a length between 3 and 15 characters at least, mustn't be empty and must match with the nameformat */
-	if (names.length < 3 || names.length > 15) {
-		alert("Name must have between 3 and 15 characters!");
+	if (names === '') {
+		error.textContent = "Name is empty!";
 		return;
-	} else if (names === '') {
-		alert("Name is empty!");
+	} else if (names.length < 3 || names.length > 15) {
+		error.textContent = "Name must have between 3 and 15 characters!";
 		return;
 	} else if (!names.match(nameformat)) {
-		alert("Name doesn't have the right format.");
+		error.textContent = "Name doesn't have the right format.";
+		return;
 	}
 
 	/* telephone: mustn't be empty and must match the telephone format */
-    if (ntelephone.length < 9 || ntelephone.length > 9) {
-        alert("Phone number must have 9 characters.");
-        return;
-    } else if (ntelephone === '') {
-		alert("Please enter a Phone number");
+	if (ntelephone === '') {
+		error.textContent = "Please enter a Phone number";
 		return;
+	} else if (ntelephone.length < 9 || ntelephone.length > 9) {
+		error.textContent = "Phone number must have 9 characters.";
+        return;
 	} else if (!ntelephone.match(ntelephoneformat)) {
-		alert("Phone number doesn't have the right format.");
+		error.textContent = "Phone number doesn't have the right format.";
 		return;
 	}
 
 	/* password & confirmation password: must have between 8 and 15 characters, mustn't be different, must have the right format and they mustn't be empty   */
-	if (password.length < 8 || password.length > 15 && password2.length < 8 || password2.length > 15) {
-		alert("Password should have btw 8 and 15 characters!");
+	if (password === '' || password2 === '') {
+		error.textContent = "Password is empty!";
+		return;
+	} else if (password.length < 8 || password.length > 15 && password2.length < 8 || password2.length > 15) {
+		error.textContent = "Password should have btw 8 and 15 characters!";
 		return;
 	} else if (password != password2) {
-		alert("Password doesn't match, write them again!");
+		error.textContent = "Password doesn't match, write them again!";
 		return;
 	} else if (!password.match(passwordformat) && !password2.match(passwordformat)) {
-		alert("Password doesn't have the right format!");
-		return;
-	} else if (password === '' || password2 === '') {
-		alert("Password is empty!");
+		error.textContent = "Password doesn't have the right format!";
 		return;
 	}
 
 	/* email: mustn't be empty and must match the email format */
-	if (!email.match(emailformat)) {
-		alert("Have u written an email address?");
+	if (email === '') {
+		error.textContent = "Email address is empty!";
 		return;
-	} else if (email === '') {
-		alert("Email address is empty!");
+	} else if (!email.match(emailformat)) {
+		error.textContent = "Have u written an email address?";
 		return;
 	}
 
 	/* genre: mustn't be empty */
 	if (!genre.match(select)) {
-		alert("Genre is needed");
+		error.textContent = "Genre is needed";
 		return;
 	}
 
 	/* birthPlace: mustn't be empty */
 	if (!birthplace.match(select)) {
-		alert("Birth place is needed");
+		error.textContent = "Birth place is needed";
 		return;
 	}
 
 	/* countryOfResidence: mustn't be empty */
 	if (!countryofresidence.match(select)) {
-		alert("Country of residence is needed");
+		error.textContent = "Country of residence is needed";
 		return;
 	}
 
 	/* birthDate mustn't be greater than current date */
 	if (birthdate > currentdate.toISOString().slice(0, 10)) {
-		alert("Birth date is greater than the current date.");
+		error.textContent = "Birth date is greater than the current date.";
 		return;
 	}
 
@@ -130,7 +133,7 @@ function handleSubmit(event) {
 
 	/* you can't: be underage or be over 65 years old */
 	if (age < 18 || age > 65) {
-		alert("You can't be underage and you can't be over 65 years old");
+		error.textContent = "You can't be underage and you can't be over 65 years old";
 		return;
 	}
 

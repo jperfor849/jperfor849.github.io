@@ -101,6 +101,23 @@ textarea {
     text-align: end;
 }
 
+.error {
+    grid-area: error;
+    font-size: 1.000em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0em 0 1.875em 0;
+    padding: 0 0 0.875em 0;
+    text-transform: uppercase;
+}
+
+#errorName {
+    align-items: center;
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+
 .submit {
     grid-area: submit;
 }
@@ -115,6 +132,7 @@ textarea {
 .birthPlace,
 .countryOfResidence,
 .birthDate,
+.error,
 .submit {
     width: 100%;
 }
@@ -128,9 +146,10 @@ form {
     "genre genre genre"
     "birthPlace .. countryOfResidence"
     "birthDate birthDate birthDate"
+    "error error error"
     "submit submit submit";
     grid-template-columns: 45% 10% 45%;
-    grid-template-rows: repeat(7, 14.28%);
+    grid-template-rows: repeat(8, 12.5%);
     padding: 37.5px;
 }
 
