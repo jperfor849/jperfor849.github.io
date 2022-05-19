@@ -323,6 +323,7 @@ textarea {
     font-weight: bold;
     outline: none;
     padding: 20px 35px;
+    text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s;
 }
