@@ -119,6 +119,11 @@ function handleSubmit(event) {
 		return;
 	}
 
+	if (birthdate === '') {
+		error.textContent = "Birth date is needed";
+		return;
+	}
+
 	/* birthDate mustn't be greater than current date */
 	if (birthdate > currentdate.toISOString().slice(0, 10)) {
 		error.textContent = "Birth date is greater than the current date!";

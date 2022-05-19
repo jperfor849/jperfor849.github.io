@@ -210,15 +210,21 @@
 			return;
 		}
     ```
-	- Check if birth date is not greater than the current date, and if the user is underage or over 65 years old.
+	- Birth date mustn't be empty, check if birth date is not greater than the current date, and if the user is underage or over 65 years old.
     ```
-    	1.- Check if the birth date is not greater than the current date:
+		1.- Check if the birth date is not empty:
+		if (birthdate === '') {
+			/* If birth date is empty, the following message will be printed */
+			error.textContent = "Birth date is needed";
+			return;
+		}
+    	2.- Check if the birth date is not greater than the current date:
 		if (birthdate > currentdate.toISOString().slice(0, 10)) {
 			/* If birth date is greater than the current date, the following message will be printed */
 			error.textContent = "Birth date is greater than the current date!";
 			return;
 		}
-    	2.- Check if the user is underage or over 65 years old:
+    	3.- Check if the user is underage or over 65 years old:
 		if (age < 18 || age > 65) {
 			/* If the user is underage or over 65 years old, the following message will be printed */
 			error.textContent = "You can't be underage and you can't be over 65 years old!";
